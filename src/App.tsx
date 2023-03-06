@@ -1,6 +1,7 @@
 import './App.css';
 import { useEffect, useState } from 'react';
 import React from 'react';
+import axios from 'axios';
 
 interface Repositorio {
   full_name: string;
@@ -14,10 +15,9 @@ function App() {
   const [repositorios, setRepositorios] = useState<Repositorio[]>([]);
 
   useEffect(() => {
-    fetch('https://api.github.com/users/aecioprado/repos')
-    .then(resposta => resposta.json())
-    .then(data => {
-      setRepositorios(data)
+    axios.get('https://api.github.com/users/aecioprado/repos')
+    .then(resposta => {
+      setRepositorios(resposta.data)
   })
   }, [])
 
