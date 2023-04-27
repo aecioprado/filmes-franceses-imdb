@@ -2,6 +2,8 @@ import './styles/App.css'
 import { useEffect, useState } from 'react';
 import React from 'react';
 import axios from 'axios';
+import Navbar from './components/Navbar';
+import { Poster } from './components/Poster';
 
 interface Repositorio {
   full_name: string;
@@ -23,7 +25,8 @@ function App() {
 
   return (
     <div>
-      <div className='container-fluif bg-primary'>container</div>
+      <Navbar />
+      <Poster/>
     <ul>
       {repositorios.map(repo => {
         return (
