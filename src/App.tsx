@@ -1,9 +1,11 @@
-import './styles/App.css'
+import './styles/global.css'
 import { useEffect, useState } from 'react';
 import React from 'react';
 import axios from 'axios';
 import Navbar from './components/Navbar';
-import { Poster } from './components/Poster';
+import { Card } from './components/Card';
+import Layout from './components/Layout';
+import { Row } from './components/Row';
 
 interface Repositorio {
   full_name: string;
@@ -24,20 +26,17 @@ function App() {
   }, [])
 
   return (
-    <div>
+    <>
+    <Layout>
       <Navbar />
-      <Poster/>
-    <ul>
-      {repositorios.map(repo => {
-        return (
-          <li key={repo.full_name}>
-            <strong>{repo.full_name}</strong>
-            <p>{repo.description}</p>
-          </li>
-        )
-      })}
-    </ul>
-  </div>
+      <Row>
+        <Card/>
+        <Card/>
+        <Card/>
+      </Row>
+      
+    </Layout>
+  </>
   );
 }
 
